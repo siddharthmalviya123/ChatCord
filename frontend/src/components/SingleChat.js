@@ -12,7 +12,7 @@ import ScrollableChat from './ScrollableChat';
 import Lottie from "react-lottie";
 import io from "socket.io-client";
 import animationData from "../animations/typing.json";
-const ENDPOINT = "https://message-mate.onrender.com";   //Endpoint of the backend
+const ENDPOINT = "http://localhost:5000";   //Endpoint of the backend
 
 var socket, selectedChatCompare;
 
@@ -36,6 +36,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   };
 
   let {user,selectedChat,setSelectedChat, notification, setNotification,chats,setChats}= ChatState();
+
 
   const fetchMessages = async () => {
     //const c=user;user=localStorage.getItem("userInfo");
@@ -71,10 +72,11 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   };
 
 
+
   useEffect(() => {
     fetchMessages();
     selectedChatCompare = selectedChat;
-    // eslint-disable-next-line
+    
   }, [selectedChat]);
 
   useEffect(() => {
